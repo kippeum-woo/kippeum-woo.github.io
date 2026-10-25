@@ -6,8 +6,8 @@
   "github": "https://github.com/kippeum-woo",
   "linkedin": "https://www.linkedin.com/in/kippeumwoo/",
   "email": "",
-  "projects": [
-    { "title": "Hangul game", "url": "" },
-    { "title": "SCM SaaS", "url": "" }
-  ]
+"projects": [
+  { "title": "SCM SaaS", "url": "", "category": "SCM" },
+    { "title": "Hangul game", "url": "", "category": "Game" }
+]
 }
