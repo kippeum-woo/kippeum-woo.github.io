@@ -1,0 +1,13 @@
+{
+  "name": "",
+  "role": "",
+  "intro": "",
+  "about": "",
+  "github": "https://github.com/kippeum-woo",
+  "linkedin": "https://www.linkedin.com/in/kippeumwoo/",
+  "email": "",
+  "projects": [
+    { "title": "Hangul game", "url": "" },
+    { "title": "SCM SaaS", "url": "" }
+  ]
+}

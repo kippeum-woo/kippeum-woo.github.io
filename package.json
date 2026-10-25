@@ -1,0 +1,8 @@
+{
+  "name": "portfolio-and-blog",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node scripts/build.mjs", "preview": "node scripts/preview.mjs" },
+  "engines": { "node": ">=22" },
+  "dependencies": { "marked": "17.0.5" }
+}
