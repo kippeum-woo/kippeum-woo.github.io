@@ -52,7 +52,13 @@ await writeFile('dist/.nojekyll', '');
 for (const post of posts) {
   await writeFile(`dist/posts/${post.slug}.html`, page(`${post.title} — ${name}`, `<header><a href="../index.html">${esc(name)}</a></header><main id="main"><h1>${esc(post.title)}</h1><time datetime="${esc(post.date)}">${esc(post.date)}</time><article>${post.html}</article><p><a href="../index.html#writing">← All writing</a></p></main>`, '../', post.lang || 'en', post.title));
 }
-const projects = site.projects.map(p => `<li>${p.url ? `<a href="${webUrl(p.url)}">${esc(p.title)} <span aria-hidden="true">↗</span></a>` : `<span>${esc(p.title)}</span><span class="status">In progress</span>`}</li>`).join('');
+const projectGroups = new Map();
+for (const project of site.projects) {
+  const category = project.category?.trim() || 'Other';
+  if (!projectGroups.has(category)) projectGroups.set(category, []);
+  projectGroups.get(category).push(project);
+}
+const projects = [...projectGroups].map(([category, items]) => `<div class="project-group"><h3>${esc(category)}</h3><ul class="plain projects">${items.map(p => `<li>${p.url ? `<a href="${webUrl(p.url)}">${esc(p.title)} <span aria-hidden="true">↗</span></a>` : `<span>${esc(p.title)}</span><span class="status">In progress</span>`}</li>`).join('')}</ul></div>`).join('');
 const writing = posts.map(p => `<li><time datetime="${esc(p.date)}">${esc(p.date)}</time><a href="./posts/${p.slug}.html" lang="${esc(p.lang || 'en')}">${esc(p.title)}</a></li>`).join('');
-await writeFile('dist/index.html', page(name, `<header><h1>${esc(name)}</h1>${site.role ? `<p>${esc(site.role)}</p>` : ''}<p class="intro">${esc(intro)}</p><nav aria-label="Main navigation"><a href="#about">About</a><a href="#projects">Projects</a><a href="#writing">Writing</a></nav></header><main id="main"><section id="about"><h2>About</h2><p>${esc(site.about.trim() || 'A short introduction goes here.')}</p></section><section id="projects"><h2>Projects</h2><ul class="plain projects">${projects}</ul></section><section id="writing"><h2>Writing</h2>${posts.length ? `<ul class="plain writing">${writing}</ul>` : '<p class="muted">No posts yet.</p>'}</section></main>`));
+await writeFile('dist/index.html', page(name, `<header><h1>${esc(name)}</h1>${site.role ? `<p>${esc(site.role)}</p>` : ''}<p class="intro">${esc(intro)}</p><nav aria-label="Main navigation"><a href="#about">About</a><a href="#projects">Projects</a><a href="#writing">Writing</a></nav></header><main id="main"><section id="about"><h2>About</h2><p>${esc(site.about.trim() || 'A short introduction goes here.')}</p></section><section id="projects"><h2>Projects</h2>${projects}</section><section id="writing"><h2>Writing</h2>${posts.length ? `<ul class="plain writing">${writing}</ul>` : '<p class="muted">No posts yet.</p>'}</section></main>`));
 console.log(`Built dist/: homepage + ${posts.length} post(s).`);
