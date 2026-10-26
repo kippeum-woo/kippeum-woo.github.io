@@ -72,6 +72,14 @@ const projects = [...projectGroups].map(([category, items]) => `
             ? `<span class="muted">${esc(p.description)}</span>`
             : ''
           }
+          ${p.releaseDate
+  ? `<span class="muted">Release: ${esc(p.releaseDate)}</span>`
+  : ''
+}
+${p.updatedDate
+  ? `<span class="muted">Updated: ${esc(p.updatedDate)}</span>`
+  : ''
+}
         </li>
       `).join('')}
     </ul>
