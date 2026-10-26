@@ -12,12 +12,14 @@
   "url": "",
   "category": "SCM",
   "description": "A tool for simplifying supply chain workflows."
-}
+},
   {
   "title": "Cloud Hangul",
   "url": "https://cloud-hangul.pages.dev/",
   "category": "Game",
   "description": "A game where you leave your thoughts in Hangul clouds in the skies above cities around the world."
+  "releaseDate": "2026-10-26",
+  "updatedDate": "2026-10-26"
 }
 ]
 }
