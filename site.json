@@ -8,6 +8,6 @@
   "email": "",
 "projects": [
   { "title": "SCM SaaS", "url": "", "category": "SCM" },
-    { "title": "Hangul game", "url": "", "category": "Game" }
+    { "title": "Cloud Hangul", "url": "https://cloud-hangul.pages.dev/", "category": "Game" }
 ]
 }
