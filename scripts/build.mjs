@@ -18,7 +18,7 @@ const footer = [
 ].filter(Boolean).join('');
 function page(title, body, prefix = './', lang = 'en', description = intro) {
   return `<!doctype html>
-<html lang="${esc(lang)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="${esc(description)}"><title>${esc(title)}</title><link rel="stylesheet" href="${prefix}assets/style.css"></head>
+<html lang="${esc(lang)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="${esc(description)}"><title>${esc(title)}</title><link rel="stylesheet" href="${prefix}assets/style.css?v=20261026-row"></head>
 <body><a class="skip" href="#main">Skip to content</a><div class="page">${body}<footer>${footer}</footer></div></body></html>`;
 }
 const posts = [];
