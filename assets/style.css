@@ -19,7 +19,18 @@ ul.plain { list-style: none; margin: 0; padding: 0; }
 .project-group h3 { display: inline-block; font-size: 12px; line-height: 1.5; font-weight: 600; color: #111; background: #eee; border-radius: 999px; padding: 3px 11px; margin: 0 0 10px; }
 .project-group[data-category="game"] h3 { background: #ffe68a; }
 .project-group[data-category="scm"] h3 { background: #bce8c5; }
-.projects li { margin: 0 0 12px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 16px; }
+.projects li { margin: 0 0 12px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 12px; }
+.projects li > * { min-width: 0; }
+.projects li > a, .projects li > .status { white-space: nowrap; }
+.page:has(#projects) { max-width: 1280px; }
+.page:has(#projects) .intro, #about, #writing { max-width: 664px; }
+@media (min-width: 1200px) {
+  .projects li { flex-wrap: nowrap; }
+  .projects li > * { flex-shrink: 0; }
+}
+@media (max-width: 1199px) {
+  .projects li > .muted { overflow-wrap: anywhere; }
+}
 .status, time, .muted { color: #595959; font-size: 13px; }
 .writing li { display: grid; grid-template-columns: 105px 1fr; gap: 20px; margin-bottom: 14px; }
 footer { border-top: 1px solid #ddd; padding-top: 22px; display: flex; flex-wrap: wrap; gap: 22px; font-size: 14px; }
